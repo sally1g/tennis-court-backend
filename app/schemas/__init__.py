@@ -14,6 +14,12 @@ from app.schemas.region import RegionWithCourts
 from app.schemas.court import CourtWithRegion, CourtWithAvailability
 from app.schemas.availability import AvailabilityWithCourt
 
+# Rebuild models to resolve forward references
+RegionWithCourts.model_rebuild()
+CourtWithRegion.model_rebuild()
+CourtWithAvailability.model_rebuild()
+AvailabilityWithCourt.model_rebuild()
+
 __all__ = [
     # Region
     "RegionBase",
